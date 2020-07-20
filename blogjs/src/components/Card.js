@@ -3,6 +3,20 @@ import '../styles/Card.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 class Card extends React.Component{
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         titulos: 'HOLA'
+    //     }
+    // }
+
+    // componentDidMount(){        ///DIDMOUNT sirve para llamar API's
+    //     setTimeout(()=>{
+    //         this.setState({
+    //             titulos: 'CHAU'
+    //         })
+    //     }, 5000)
+    // }
     render(){
         const { title, description, leftColor, rightColor, date} = this.props
         return (
