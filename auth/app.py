@@ -2,8 +2,6 @@ from flask import Flask, jsonify, request
 from flask_login import login_user, logout_user, login_required, current_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-import json
-from werkzeug.security import generate_password_hash, check_password_hash
 
 db = SQLAlchemy()
 app = Flask(__name__)
@@ -14,12 +12,9 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 from .models import Users
-
-
 @login_manager.user_loader
-def load_user(user_id):
-    return Users.query.get(int(user_id))
-
+def load_user(id):
+    return Users.query.get(id)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -34,8 +29,9 @@ def login():
 
 @app.route('/probando')
 @login_required
-def priueba():
-    return current_user.name
+def prueba():
+    user_actual = Users.query.filter_by(name=current_user.name).first()
+    return jsonify({'result': 'Usuario Iniciado'})
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -49,3 +45,9 @@ def signup():
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'result': 'Usuario registrado'}), 201
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return jsonify({'result': 'Sesion cerrada'})

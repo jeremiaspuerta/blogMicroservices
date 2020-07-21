@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from '@testing-library/react'
 import '../styles/New.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Link } from 'react-router-dom'

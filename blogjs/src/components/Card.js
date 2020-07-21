@@ -18,13 +18,10 @@ class Card extends React.Component{
     //     }, 5000)
     // }
     render(){
-        const { title, description, leftColor, rightColor, date} = this.props
+        const { title, description} = this.props
         return (
-            <div className="card mx-auto Blog-Card" style={{
-                background: `linear-gradient(to right, ${rightColor}, ${leftColor})`
-            }}>
+            <div className="card mx-auto Blog-Card">
                 <h1>{title}</h1>
-                <p>{date}</p>
                 <p>{description}</p>
             </div>
         )

@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card'
 
+///FORMA MAS CORTA DE ESTRUCTUR UN COMPONENTE FUNCIONAL
 const BlogList = ({blog}) => (
     <div>
         { blog.map((home) =>{
@@ -8,10 +9,7 @@ const BlogList = ({blog}) => (
                 <Card
                 key={home.id}
                 title={home.title}
-                date={home.date}
                 description={home.description}
-                leftColor={home.leftColor}
-                rightColor={home.rightColor}
             />
             )
         })
