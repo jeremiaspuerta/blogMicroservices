@@ -9,7 +9,8 @@ const BlogList = ({blog}) => (
                 <Card
                 key={home.id}
                 title={home.title}
-                description={home.description}
+                date={home.date}
+                description={home.content}
             />
             )
         })

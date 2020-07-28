@@ -2,17 +2,12 @@ import React from 'react'
 
 class BlogForm extends React.Component{
 
-    handleSubmit = e => {
-        e.preventDefault()    ///EVITAR QUE LA PÁGINA RECARGUE AL APRETAR 'submit'
-        console.log(this.state)
-    }
-
     render(){
-        const { onChange, form } = this.props
+        const { onChange, form, onSubmit } = this.props
         return(
             <div className="container">
             <form 
-                onSubmit={this.handleSubmit}
+                onSubmit={onSubmit}
             >
                 <div className="form-group">
                     <input 
@@ -28,10 +23,20 @@ class BlogForm extends React.Component{
                     <input 
                         type="text" 
                         className="form-control" 
-                        placeholder="description" 
-                        name="description"
+                        placeholder="autor" 
+                        name="autor"
                         onChange={onChange}
-                        value={form.description}
+                        value={form.autor}
+                    />
+                </div>  
+                <div className="form-group">
+                    <input 
+                        type="text" 
+                        className="form-control" 
+                        placeholder="content" 
+                        name="content"
+                        onChange={onChange}
+                        value={form.content}
                     />
                 </div>                
                 <button 

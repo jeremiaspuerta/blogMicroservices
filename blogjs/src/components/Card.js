@@ -18,10 +18,11 @@ class Card extends React.Component{
     //     }, 5000)
     // }
     render(){
-        const { title, description} = this.props
+        const { date,title, description} = this.props
         return (
             <div className="card mx-auto Blog-Card">
                 <h1>{title}</h1>
+                <p>{date} </p>
                 <p>{description}</p>
             </div>
         )

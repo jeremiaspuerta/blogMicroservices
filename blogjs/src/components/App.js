@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from '../pages/Home'
-import HomeNew from '../pages/HomeNew'
+import HomeContainer from '../pages/HomeContainer'
+import BlogNewContainer from '../pages/BlogNewContainer'
 import NotFound from '../pages/NotFound'
 
 const App = () => (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/home" component={Home}/>
-                <Route exact path="/new" component={HomeNew}/>
+                <Route exact path="/home" component={HomeContainer}/>
+                <Route exact path="/new" component={BlogNewContainer}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, request
-from flask_login import login_user, logout_user, login_required, current_user
+from flask_login import login_user, logout_user, login_required, current_user, LoginManager
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from .database import dbConfig
+from flask_cors import CORS
 
 db = SQLAlchemy()
 app = Flask(__name__)
+cors = CORS(app, resources={r"/": {"origins": "*"}})
 app.config['SECRET_KEY'] = 'Bruce Wayne is Batman'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:53663774Mysql-@localhost:3306/auth'
+app.config['SQLALCHEMY_DATABASE_URI'] = dbConfig
 db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -51,3 +53,5 @@ def signup():
 def logout():
     logout_user()
     return jsonify({'result': 'Sesion cerrada'})
+
+app.run(host='127.0.0.1', port=5001)
